@@ -1,206 +1,941 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Bekhouche Zakaria</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zakaria Bekhouche — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F5F2EC;
+    --surface: #EFEBE2;
+    --card: #FAFAF7;
+    --text: #1A1814;
+    --muted: #6B6760;
+    --accent: #2D5016;
+    --accent-light: #4A7A25;
+    --accent-bg: #E8F0DC;
+    --border: rgba(26,24,20,0.12);
+    --gold: #B8943A;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 40px 20px;
-        }
+  html { scroll-behavior: smooth; }
 
-        header {
-            text-align: center;
-            color: white;
-            margin-bottom: 50px;
-        }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.7;
+  }
 
-        header h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(245,242,236,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 48px; height: 60px;
+  }
+  .nav-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 17px; letter-spacing: 0.01em;
+  }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    font-size: 13px; font-weight: 400; color: var(--muted);
+    text-decoration: none; letter-spacing: 0.03em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
 
-        header p {
-            font-size: 1.2em;
-            opacity: 0.9;
-        }
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 100px 48px 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -200px; right: -100px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(74,122,37,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner { max-width: 900px; }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
+    color: var(--accent-light); text-transform: uppercase;
+    background: var(--accent-bg); border: 1px solid rgba(74,122,37,0.2);
+    padding: 6px 14px; border-radius: 100px;
+    margin-bottom: 32px;
+  }
+  .hero-tag::before {
+    content: '';
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--accent-light);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; } 50% { opacity: 0.3; }
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(48px, 7vw, 84px);
+    line-height: 1.05; letter-spacing: -0.01em;
+    margin-bottom: 28px;
+  }
+  .hero h1 em { font-style: italic; color: var(--muted); }
+  .hero-desc {
+    font-size: 18px; color: var(--muted); max-width: 520px;
+    line-height: 1.65; margin-bottom: 48px; font-weight: 300;
+  }
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent); color: #fff;
+    font-size: 14px; font-weight: 500;
+    padding: 13px 24px; border-radius: 8px;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--accent-light); transform: translateY(-1px); }
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: transparent; color: var(--text);
+    font-size: 14px; font-weight: 400;
+    padding: 13px 24px; border-radius: 8px;
+    border: 1px solid var(--border);
+    text-decoration: none; cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-outline:hover { background: var(--surface); transform: translateY(-1px); }
 
-        main {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+  /* STATS */
+  .stats {
+    display: flex; gap: 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin: 0;
+    background: var(--card);
+  }
+  .stat {
+    flex: 1; text-align: center;
+    padding: 32px 20px;
+    border-right: 1px solid var(--border);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px; line-height: 1; color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .stat-label { font-size: 12px; color: var(--muted); letter-spacing: 0.04em; }
 
-        .section-header {
-            text-align: center;
-            color: white;
-            margin-bottom: 40px;
-        }
+  /* SECTIONS */
+  section { padding: 96px 48px; max-width: 1000px; margin: 0 auto; }
+  .section-header { margin-bottom: 56px; }
+  .section-num {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+    color: var(--accent-light); text-transform: uppercase;
+    margin-bottom: 10px; display: block;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.15;
+  }
 
-        .section-num {
-            display: block;
-            font-size: 0.9em;
-            letter-spacing: 2px;
-            opacity: 0.9;
-            margin-bottom: 10px;
-        }
+  /* ABOUT */
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 48px; align-items: start;
+  }
+  .about-text p { color: var(--muted); margin-bottom: 16px; }
+  .about-interests { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+  .interest-tag {
+    font-size: 13px; padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: 100px; color: var(--muted);
+    background: var(--card);
+  }
+  .about-contact-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px; padding: 28px;
+  }
+  .contact-item {
+    display: flex; align-items: center; gap: 14px;
+    padding: 12px 0; border-bottom: 1px solid var(--border);
+  }
+  .contact-item:last-child { border-bottom: none; }
+  .contact-icon {
+    width: 36px; height: 36px; border-radius: 8px;
+    background: var(--accent-bg);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; flex-shrink: 0;
+  }
+  .contact-label { font-size: 11px; color: var(--muted); margin-bottom: 2px; }
+  .contact-value { font-size: 13px; font-weight: 500; }
+  .contact-value a { color: var(--accent-light); text-decoration: none; }
 
-        .section-title {
-            font-size: 2.5em;
-            font-weight: bold;
-        }
+  /* FORMATION */
+  .timeline { position: relative; }
+  .timeline::before {
+    content: ''; position: absolute; left: 150px; top: 8px;
+    width: 1px; height: calc(100% - 8px);
+    background: var(--border);
+  }
+  .timeline-item {
+    display: grid; grid-template-columns: 150px 1fr;
+    gap: 32px; margin-bottom: 48px;
+    position: relative;
+  }
+  .timeline-item::after {
+    content: ''; position: absolute;
+    left: 146px; top: 8px;
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--bg);
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+  .timeline-date {
+    text-align: right; padding-top: 2px;
+    font-size: 12px; color: var(--muted); font-weight: 400;
+    padding-right: 16px;
+  }
+  .timeline-body { padding-left: 16px; }
+  .timeline-school {
+    font-size: 12px; color: var(--accent-light); font-weight: 500;
+    letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 4px;
+  }
+  .timeline-title { font-size: 17px; font-weight: 500; margin-bottom: 8px; }
+  .timeline-desc { font-size: 14px; color: var(--muted); }
 
-        .latex-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
+  /* PROJETS */
+  .projects-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .project-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px; padding: 28px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .project-card:hover { border-color: rgba(74,122,37,0.3); transform: translateY(-2px); }
+  .project-card.featured {
+    grid-column: 1 / -1;
+    display: grid; grid-template-columns: 1fr auto;
+    align-items: start; gap: 20px;
+  }
+  .project-badge {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.06em;
+    text-transform: uppercase; padding: 4px 10px;
+    border-radius: 100px;
+    margin-bottom: 14px; display: inline-block;
+  }
+  .badge-stage { background: var(--accent-bg); color: var(--accent); }
+  .badge-elec { background: #EAF0FF; color: #2D4EA0; }
+  .badge-vulg { background: #FFF4E0; color: #8A5900; }
+  .badge-enseignement { background: #F0E8FF; color: #5B2D9E; }
+  .project-title { font-size: 17px; font-weight: 500; margin-bottom: 10px; }
+  .project-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
+  .project-year { font-size: 12px; color: var(--muted); white-space: nowrap; margin-top: 4px; }
 
-        .latex-card {
-            background: white;
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
+  /* COMPÉTENCES */
+  .skills-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .skill-group-title {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--accent-light);
+    margin-bottom: 20px;
+  }
+  .skill-item {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 0; border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+  .skill-item:last-child { border-bottom: none; }
+  .skill-name { font-weight: 400; }
+  .skill-bar {
+    display: flex; gap: 4px;
+  }
+  .skill-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--border);
+  }
+  .skill-dot.filled { background: var(--accent); }
 
-        .latex-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        }
+  .lang-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 40px; }
+  .lang-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 20px;
+    text-align: center;
+  }
+  .lang-flag { font-size: 28px; margin-bottom: 8px; }
+  .lang-name { font-weight: 500; margin-bottom: 4px; }
+  .lang-level { font-size: 12px; color: var(--muted); }
 
-        .latex-icon {
-            font-size: 3em;
-            margin-bottom: 15px;
-        }
+  /* RECOMMANDATIONS */
+  .reco-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .reco-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 28px;
+    position: relative; overflow: hidden;
+    cursor: pointer; transition: border-color 0.2s, transform 0.2s;
+  }
+  .reco-card:hover { border-color: rgba(74,122,37,0.3); transform: translateY(-2px); }
+  .reco-card::before {
+    content: '\201C';
+    position: absolute; top: -10px; right: 20px;
+    font-family: 'DM Serif Display', serif;
+    font-size: 120px; color: var(--accent-bg);
+    line-height: 1; pointer-events: none;
+  }
+  .reco-text {
+    font-size: 14px; color: var(--muted); line-height: 1.7;
+    margin-bottom: 20px; font-style: italic;
+    position: relative; z-index: 1;
+  }
+  .reco-author { display: flex; align-items: center; gap: 12px; }
+  .reco-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--accent-bg);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 16px; color: var(--accent); flex-shrink: 0;
+  }
+  .reco-name { font-size: 14px; font-weight: 500; }
+  .reco-role { font-size: 12px; color: var(--muted); }
+  .reco-expand {
+    font-size: 12px; color: var(--accent-light); margin-top: 12px;
+    cursor: pointer; display: inline-flex; align-items: center; gap: 4px;
+  }
 
-        .latex-meta {
-            color: #667eea;
-            font-size: 0.85em;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-        }
+  /* MODAL */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0; z-index: 200;
+    background: rgba(26,24,20,0.7); backdrop-filter: blur(4px);
+    align-items: center; justify-content: center; padding: 24px;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--card); border-radius: 20px;
+    max-width: 640px; width: 100%; max-height: 80vh;
+    overflow-y: auto; padding: 40px;
+    position: relative; border: 1px solid var(--border);
+  }
+  .modal-close {
+    position: absolute; top: 20px; right: 20px;
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--surface); border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; color: var(--muted);
+    transition: background 0.2s;
+  }
+  .modal-close:hover { background: var(--border); }
+  .modal-author-header { display: flex; gap: 14px; align-items: center; margin-bottom: 24px; }
+  .modal-avatar {
+    width: 52px; height: 52px; border-radius: 50%;
+    background: var(--accent-bg);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px; color: var(--accent);
+  }
+  .modal-name { font-size: 17px; font-weight: 500; }
+  .modal-role { font-size: 13px; color: var(--muted); }
+  .modal-date { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .modal-body { font-size: 14px; line-height: 1.8; color: var(--muted); }
+  .modal-body p { margin-bottom: 14px; }
 
-        .latex-title {
-            font-size: 1.3em;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 12px;
-        }
+  /* CONTACT */
+  .contact-section {
+    background: var(--accent);
+    color: #fff; text-align: center;
+    padding: 96px 48px;
+  }
+  .contact-section h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 4vw, 48px);
+    margin-bottom: 16px;
+  }
+  .contact-section p { color: rgba(255,255,255,0.7); max-width: 420px; margin: 0 auto 36px; }
+  .contact-email {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px; color: #fff; text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding-bottom: 4px;
+    transition: border-color 0.2s;
+  }
+  .contact-email:hover { border-color: #fff; }
 
-        .latex-desc {
-            color: #666;
-            font-size: 0.95em;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
+  /* FOOTER */
+  footer {
+    text-align: center; padding: 32px;
+    font-size: 12px; color: var(--muted);
+    border-top: 1px solid var(--border);
+  }
 
-        .project-links {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-inner > * {
+    animation: fadeUp 0.7s ease both;
+  }
+  .hero-tag { animation-delay: 0s; }
+  .hero h1 { animation-delay: 0.1s; }
+  .hero-desc { animation-delay: 0.2s; }
+  .hero-ctas { animation-delay: 0.3s; }
 
-        .project-link {
-            display: inline-block;
-            padding: 10px 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-size: 0.9em;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .project-link:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-        }
-
-        .footer-note {
-            text-align: center;
-            color: white;
-            font-size: 0.9em;
-            opacity: 0.8;
-            margin-top: 30px;
-        }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2em;
-            }
-
-            .section-title {
-                font-size: 1.8em;
-            }
-
-            .latex-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  @media (max-width: 768px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    section { padding: 64px 24px; }
+    .hero { padding: 100px 24px 64px; }
+    .about-grid, .projects-grid, .reco-grid, .skills-layout, .lang-grid { grid-template-columns: 1fr; }
+    .project-card.featured { grid-template-columns: 1fr; }
+    .timeline::before { left: 0; }
+    .timeline-item { grid-template-columns: 1fr; gap: 8px; }
+    .timeline-item::after { left: -4px; }
+    .timeline-date { text-align: left; padding-right: 0; }
+    .stats { flex-wrap: wrap; }
+    .stat { min-width: 50%; border-right: none; border-bottom: 1px solid var(--border); }
+  }
+</style>
 </head>
 <body>
-    <header>
-        <h1>Portfolio - Bekhouche Zakaria</h1>
-        <p>Rédaction scientifique de qualité</p>
-    </header>
 
-    <main>
-        <section id="latex">
-            <div class="section-header">
-                <span class="section-num">04 — Travaux LaTeX</span>
-                <h2 class="section-title">Rédaction scientifique de qualité</h2>
-            </div>
-            <div class="latex-grid">
+<nav>
+  <span class="nav-name">Bekhouche Zakaria</span>
+  <ul class="nav-links">
+    <li><a href="#about">À propos</a></li>
+    <li><a href="#formation">Formation</a></li>
+    <li><a href="#projets">Projets</a></li>
+    <li><a href="#competences">Compétences</a></li>
+    <li><a href="#recommandations">Recommandations</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-                <div class="latex-card">
-                    <div class="latex-icon">📘</div>
-                    <div class="latex-meta">Cours & exercices corrigés</div>
-                    <div class="latex-title">Calcul littéral, fractions, puissances de 10</div>
-                    <div class="latex-desc">Cours complet pour la 3e, avec rappels, exemples et exercices corrigés pas à pas. Rédigé sous LaTeX.</div>
-                    <div class="project-links">
-                        <a href="./Cours_Maths.pdf" class="project-link" target="_blank">📄 Télécharger PDF</a>
-                    </div>
-                </div>
+<!-- HERO -->
+<section class="hero" style="padding-top:100px; max-width:none;">
+  <div class="hero-inner">
+    <div class="hero-tag">Disponible — Stage Laboratoire · Avr – Juin 2026</div>
+    <h1>Zakaria<br>Bekhouche<br><em>Physicien</em></h1>
+    <p class="hero-desc">Étudiant en Physique Appliquée & Avancée à l'Université Jean Monnet. Passionné par les phénomènes ondulatoires, la modélisation scientifique et la transmission du savoir.</p>
+    <div class="hero-ctas">
+      <a href="#recommandations" class="btn-primary">Voir mes recommandations →</a>
+      <a href="#contact" class="btn-outline">Me contacter</a>
+    </div>
+  </div>
+</section>
 
-                <div class="latex-card">
-                    <div class="latex-icon">⚛️</div>
-                    <div class="latex-meta">Cours & TD corrigés</div>
-                    <div class="latex-title">Physique statistique – Ensemble microcanonique et canonique</div>
-                    <div class="latex-desc">Notions d'espace des phases, théorème de Liouville, distribution binomiale, oscillateurs, modèle de Debye. Corrections détaillées.</div>
-                    <div class="project-links">
-                        <a href="./Physique_statistique_corrigýes.pdf" class="project-link" target="_blank">📄 Télécharger PDF</a>
-                    </div>
-                </div>
+<!-- STATS -->
+<div class="stats" style="max-width:none;">
+  <div class="stat"><div class="stat-num">6</div><div class="stat-label">Lettres de recommandation</div></div>
+  <div class="stat"><div class="stat-num">3</div><div class="stat-label">Années de licence</div></div>
+  <div class="stat"><div class="stat-num">4</div><div class="stat-label">Projets réalisés</div></div>
+  <div class="stat"><div class="stat-num">2</div><div class="stat-label">Ans d'enseignement</div></div>
+</div>
 
-                <div class="latex-card">
-                    <div class="latex-icon">🚛</div>
-                    <div class="latex-meta">Quiz & révision</div>
-                    <div class="latex-title">Capacité professionnelle – Transport de marchandises</div>
-                    <div class="latex-desc">29 questions-réponses détaillées sur la réglementation, sécurité, gestion, douanes, environnement, etc.</div>
-                    <div class="project-links">
-                        <a href="./Capacite_Professionnelle_de_Transport_de_Marchandises.pdf" class="project-link" target="_blank">📄 Télécharger PDF</a>
-                    </div>
-                </div>
+<!-- À PROPOS -->
+<section id="about">
+  <div class="section-header">
+    <span class="section-num">01 — À propos</span>
+    <h2 class="section-title">Curieux, rigoureux<br>et passionné de physique</h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>Étudiant en troisième année de Licence de Physique option Physique Avancées à l'Université Jean Monnet (Saint-Étienne), je cherche à comprendre en profondeur les phénomènes scientifiques — qu'ils soient ondulatoires, périodiques ou particulaires.</p>
+      <p>Mon parcours au Lycée du Parc / ENS Lyon en CPES m'a forgé une rigueur intellectuelle et une ouverture pluridisciplinaire qui guident ma démarche scientifique au quotidien.</p>
+      <p>Impliqué dans des projets de médiation scientifique (projet Schoollab) et fort d'une expérience d'enseignement particulier, je place la pédagogie et la transmission au cœur de mes valeurs.</p>
+      <div class="about-interests">
+        <span class="interest-tag">🏔 Randonnée</span>
+        <span class="interest-tag">📚 Lecture</span>
+        <span class="interest-tag">🧘 Yoga</span>
+        <span class="interest-tag">✈ Voyage</span>
+      </div>
+    </div>
+    <div class="about-contact-card">
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-label">Adresse</div>
+          <div class="contact-value">168 rue Prof. Beauvisage, Lyon 69008</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <div class="contact-label">Téléphone</div>
+          <div class="contact-value">07-66-18-46-17</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">✉</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value"><a href="mailto:zakaria.bekhouche@etu.univ-st-etienne.fr">zakaria.bekhouche@etu.univ-st-etienne.fr</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🎓</div>
+        <div>
+          <div class="contact-label">Université</div>
+          <div class="contact-value">Université Jean Monnet, Saint-Étienne</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-                <div class="latex-card">
-                    <div class="latex-icon">*
-
+<!-- FORMATION -->
+<section id="formation" style="background:var(--surface); max-width:none; padding-left:0; padding-right:0;">
+  <div style="max-width:1000px; margin:0 auto; padding:96px 48px;">
+  <div class="section-header">
+    <span class="section-num">02 — Formation</span>
+    <h2 class="section-title">Un parcours d'excellence</h2>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-date">2023 – 2026</div>
+      <div class="timeline-body">
+        <div class="timeline-school">Université Jean Monnet · Saint-Étienne</div>
+        <div class="timeline-title">Licence Physique — option Physique Appliquée & Avancées</div>
+        <div class="timeline-desc">Formation approfondie en physique théorique et expérimentale : thermodynamique, mécanique quantique, traitement du signal, physique statistique, électromagnétisme. Nombreux projets pratiques et TP de modélisation numérique.</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2022 – 2023</div>
+      <div class="timeline-body">
+        <div class="timeline-school">Lycée du Parc · ENS Lyon</div>
+        <div class="timeline-title">CPES — Cycle Pluridisciplinaire d'Études Supérieures</div>
+        <div class="timeline-desc">Formation d'excellence en partenariat avec l'ENS de Lyon. Programme pluridisciplinaire ambitieux en mathématiques (analyse, algèbre, probabilités), physique et sciences humaines. Développement de la rigueur analytique et des méthodes de travail académiques.</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2021 – 2022</div>
+      <div class="timeline-body">
+        <div class="timeline-school">La Martinière Monplaisir · Lyon</div>
+        <div class="timeline-title">Baccalauréat Scientifique</div>
+        <div class="timeline-desc">Spécialités scientifiques avec mention.</div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- PROJETS -->
+<section id="projets">
+  <div class="section-header">
+    <span class="section-num">03 — Expériences & Projets</span>
+    <h2 class="section-title">De la théorie<br>à la pratique</h2>
+  </div>
+  <div class="projects-grid">
+    <div class="project-card featured">
+      <div>
+        <span class="project-badge badge-stage">Stage · En cours</span>
+        <div class="project-title">Stage en Laboratoire de Physique</div>
+        <div class="project-desc">Stage conventionné dans un laboratoire de physique, du 27 avril au 19 juin 2026. Mise en œuvre des méthodes de recherche expérimentale, modélisation scientifique et rédaction de rapports de recherche.</div>
+      </div>
+      <div class="project-year">Avr – Juin 2026</div>
+    </div>
+
+    <div class="project-card">
+      <span class="project-badge badge-elec">Électronique numérique</span>
+      <div class="project-title">Chronomètre numérique 60 secondes</div>
+      <div class="project-desc">Conception et réalisation complète d'un chronomètre électronique en utilisant des bascules, portes logiques, compteurs BCD et Timer. Expérimentation concrète de l'électronique numérique et des circuits logiques.</div>
+      <div class="project-year">2025 – 2026</div>
+    </div>
+
+    <div class="project-card">
+      <span class="project-badge badge-elec">Électronique analogique</span>
+      <div class="project-title">Amplificateur audio 1W — Système de filtrage</div>
+      <div class="project-desc">Conception d'un système autonome (alimentation 9V) pour filtrer et amplifier un signal stéréo vers un unique haut-parleur. Réalisation d'un amplificateur de puissance d'environ 1W.</div>
+      <div class="project-year">2024 – 2025</div>
+    </div>
+
+    <div class="project-card">
+      <span class="project-badge badge-vulg">Médiation scientifique</span>
+      <div class="project-title">Projet Schoollab — Vulgarisation scientifique</div>
+      <div class="project-desc">Participation au projet Schoollab (collaboration UJM – Mines Ponts – Collège Honoré d'Urfé). Accompagnement de collégiens dans la préparation d'une présentation scientifique à partir d'une conférence.</div>
+      <div class="project-year">2024 – 2025</div>
+    </div>
+
+    <div class="project-card">
+      <span class="project-badge badge-elec">Mécanique</span>
+      <div class="project-title">Mise en mouvement d'un pendule oscillatoire</div>
+      <div class="project-desc">Conception d'un système périodique oscillatoire en prenant en compte les facteurs perturbateurs du système. Modélisation et analyse des régimes d'oscillation.</div>
+      <div class="project-year">2023 – 2024</div>
+    </div>
+
+    <div class="project-card">
+      <span class="project-badge badge-enseignement">Enseignement</span>
+      <div class="project-title">Professeur particulier à domicile</div>
+      <div class="project-desc">Accompagnement personnalisé d'élèves pendant 2 ans. Développement d'approches pédagogiques adaptées à chaque profil d'apprenant. Renforcement des bases en mathématiques et physique.</div>
+      <div class="project-year">2020 – 2022</div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPÉTENCES -->
+<section id="competences" style="background:var(--surface); max-width:none; padding-left:0; padding-right:0;">
+  <div style="max-width:1000px; margin:0 auto; padding:96px 48px;">
+  <div class="section-header">
+    <span class="section-num">04 — Compétences</span>
+    <h2 class="section-title">Outils & Savoir-faire</h2>
+  </div>
+  <div class="skills-layout">
+    <div>
+      <div class="skill-group-title">Compétences techniques</div>
+      <div class="skill-item">
+        <span class="skill-name">Python (NumPy, SciPy)</span>
+        <div class="skill-bar">
+          <div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name">LaTeX</span>
+        <div class="skill-bar">
+          <div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name">Excel / Word</span>
+        <div class="skill-bar">
+          <div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot"></div><div class="skill-dot"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name">Électronique analogique/numérique</span>
+        <div class="skill-bar">
+          <div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot"></div><div class="skill-dot"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name">Modélisation & simulation</span>
+        <div class="skill-bar">
+          <div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot"></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="skill-group-title">Compétences transversales</div>
+      <div class="skill-item"><span class="skill-name">Rédaction de rapports scientifiques</span><div class="skill-bar"><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Recherche bibliographique</span><div class="skill-bar"><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot"></div><div class="skill-dot"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Travail en équipe</span><div class="skill-bar"><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Pédagogie & vulgarisation</span><div class="skill-bar"><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Autonomie & rigueur</span><div class="skill-bar"><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div></div></div>
+    </div>
+  </div>
+  <div class="lang-grid" style="margin-top:48px;">
+    <div class="lang-card">
+      <div class="lang-flag">🇫🇷</div>
+      <div class="lang-name">Français</div>
+      <div class="lang-level">Langue maternelle</div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-flag">🇬🇧</div>
+      <div class="lang-name">Anglais</div>
+      <div class="lang-level">Bilingue</div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-flag">🇩🇿</div>
+      <div class="lang-name">Arabe</div>
+      <div class="lang-level">Conversationnel</div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- RECOMMANDATIONS -->
+<section id="recommandations">
+  <div class="section-header">
+    <span class="section-num">05 — Recommandations</span>
+    <h2 class="section-title">Ce que disent<br>mes professeurs</h2>
+  </div>
+  <div class="reco-grid">
+
+    <div class="reco-card" onclick="openModal('modal1')">
+      <div class="reco-text">"Curieux et volontaire, il a montré un réel intérêt pour ces enseignements. Sa formation et son implication devraient lui permettre de poursuivre un parcours de master dans de bonnes conditions."</div>
+      <div class="reco-author">
+        <div class="reco-avatar">AB</div>
+        <div>
+          <div class="reco-name">Aziz Boukenter</div>
+          <div class="reco-role">Professeur · Laboratoire Hubert Curien, UJM</div>
+        </div>
+      </div>
+      <div class="reco-expand">Lire la lettre complète →</div>
+    </div>
+
+    <div class="reco-card" onclick="openModal('modal2')">
+      <div class="reco-text">"Sérieux, attentif et impliqué dans son travail. Il s'est distingué par son attitude volontaire, sa participation régulière et ses questions pertinentes, ce qui en a fait un élément actif du groupe."</div>
+      <div class="reco-author">
+        <div class="reco-avatar">VK</div>
+        <div>
+          <div class="reco-name">Victor Kalt</div>
+          <div class="reco-role">Maître de conférences · UJM Saint-Étienne</div>
+        </div>
+      </div>
+      <div class="reco-expand">Lire la lettre complète →</div>
+    </div>
+
+    <div class="reco-card" onclick="openModal('modal3')">
+      <div class="reco-text">"Zakaria ne se décourage pas et travaille avec beaucoup d'application, de sérieux et de régularité. Il a acquis des méthodes de travail efficaces et une aisance à l'oral. Il mérite votre confiance."</div>
+      <div class="reco-author">
+        <div class="reco-avatar">CL</div>
+        <div>
+          <div class="reco-name">Cécile Lardon</div>
+          <div class="reco-role">Professeure de chaire supérieure · Lycée du Parc, Lyon</div>
+        </div>
+      </div>
+      <div class="reco-expand">Lire la lettre complète →</div>
+    </div>
+
+    <div class="reco-card" onclick="openModal('modal4')">
+      <div class="reco-text">"Étudiant très sérieux, appliqué et très actif en classe. Il participe de manière active, pose des questions très pertinentes et contribue positivement à la dynamique du groupe."</div>
+      <div class="reco-author">
+        <div class="reco-avatar">FC</div>
+        <div>
+          <div class="reco-name">Farah Cherfaoui</div>
+          <div class="reco-role">Maître de conférences & Resp. L3 Info · UJM</div>
+        </div>
+      </div>
+      <div class="reco-expand">Lire la lettre complète →</div>
+    </div>
+
+    <div class="reco-card" onclick="openModal('modal5')">
+      <div class="reco-text">"Mr. Bekhouche demonstrated the capacity to present scientific material in a structured and understandable way, both in written work and in oral presentations. He has acquired an appropriate academic foundation in physics."</div>
+      <div class="reco-author">
+        <div class="reco-avatar">VD</div>
+        <div>
+          <div class="reco-name">Dr. Vincenzo De Michele</div>
+          <div class="reco-role">Maître de conférences · Laboratoire Hubert Curien, UJM</div>
+        </div>
+      </div>
+      <div class="reco-expand">Read the full letter →</div>
+    </div>
+
+    <div class="reco-card" onclick="openModal('modal6')">
+      <div class="reco-text">"Résultats dans la filière : Bon. Résultats scientifiques théoriques : Correct. Résultats scientifiques expérimentaux : Correct. Esprit d'équipe : Bon. Autonomie : Bon."</div>
+      <div class="reco-author">
+        <div class="reco-avatar">DP</div>
+        <div>
+          <div class="reco-name">David Pietroy, Ph.D.</div>
+          <div class="reco-role">Resp. Licence Physique · Laboratoire Hubert Curien, UJM</div>
+        </div>
+      </div>
+      <div class="reco-expand">Lire l'avis complet →</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <h2>Travaillons ensemble</h2>
+  <p>À la recherche d'un stage en laboratoire de physique pour avril-juin 2026. N'hésitez pas à me contacter.</p>
+  <a href="mailto:zakaria.bekhouche@etu.univ-st-etienne.fr" class="contact-email">zakaria.bekhouche@etu.univ-st-etienne.fr</a>
+</div>
+
+<footer>
+  © 2026 Zakaria Bekhouche · Étudiant en Physique · Université Jean Monnet
+</footer>
+
+<!-- MODALS -->
+<div class="modal-overlay" id="modal1" onclick="closeModal(event, 'modal1')">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('modal1').classList.remove('open')">×</button>
+    <div class="modal-author-header">
+      <div class="modal-avatar">AB</div>
+      <div>
+        <div class="modal-name">Aziz Boukenter</div>
+        <div class="modal-role">Professeur · Laboratoire Hubert Curien</div>
+        <div class="modal-date">Saint-Étienne, 12 mars 2026</div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <p>Madame, Monsieur,</p>
+      <p>J'ai eu Monsieur Zakaria Bekhouche comme étudiant de deuxième et troisième année de licence de physique en enseignements de Thermodynamique, Traitement du Signal, Mécanique Quantique et Physique Statistique.</p>
+      <p>Curieux et volontaire, il a montré un réel intérêt pour ces enseignements. Il se situe globalement dans la première moitié de sa promotion.</p>
+      <p>La formation et l'implication de Monsieur Bekhouche devraient lui permettre de poursuivre un parcours de master dans de bonnes conditions.</p>
+      <p style="margin-top:20px; font-style:normal; color:var(--text)"><strong>Aziz Boukenter</strong>, Professeur<br>Laboratoire Hubert Curien, UJM</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal2" onclick="closeModal(event, 'modal2')">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('modal2').classList.remove('open')">×</button>
+    <div class="modal-author-header">
+      <div class="modal-avatar">VK</div>
+      <div>
+        <div class="modal-name">Victor Kalt</div>
+        <div class="modal-role">Maître de conférences · UJM Saint-Étienne</div>
+        <div class="modal-date">Saint-Étienne, 12 mars 2026</div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <p>À qui de droit,</p>
+      <p>Je me permets de vous adresser cette lettre afin de recommander Monsieur Zakaria Bekhouche, que j'ai eu comme étudiant lors de sa deuxième année de licence de physique, dans le cadre du cours de modélisation mathématique pour la physique que j'enseignais.</p>
+      <p>Au cours de cette année, Zakaria s'est investi dans l'apprentissage des outils et méthodes mathématiques nécessaires à la modélisation en physique. Il a été sérieux, attentif et impliqué dans son travail.</p>
+      <p>Il s'est également distingué en classe par son attitude volontaire, sa participation régulière et ses questions pertinentes, ce qui en a fait un élément actif du groupe.</p>
+      <p>Outre ses compétences académiques, la persévérance de Zakaria face aux difficultés et sa volonté de comprendre les concepts en profondeur en font un étudiant qui possède de solides atouts pour poursuivre ses études en master.</p>
+      <p style="margin-top:20px; font-style:normal; color:var(--text)"><strong>Victor KALT</strong><br>Maître de conférences · Université Jean Monnet</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal3" onclick="closeModal(event, 'modal3')">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('modal3').classList.remove('open')">×</button>
+    <div class="modal-author-header">
+      <div class="modal-avatar">CL</div>
+      <div>
+        <div class="modal-name">Cécile Lardon</div>
+        <div class="modal-role">Professeure de chaire supérieure · Lycée du Parc, Lyon</div>
+        <div class="modal-date">Lyon, 30 mars 2023</div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <p>Madame, Monsieur,</p>
+      <p>Zakaria BEKHOUCHE est mon étudiant en mathématiques pendant cette année scolaire 2022-2023 en première année de CPES (Cycle Pluridisciplinaire d'Études Supérieures), parcours « sciences ».</p>
+      <p>Cette formation de trois ans est assurée conjointement par le lycée du Parc (Lyon) et l'École Normale Supérieure de Lyon, ce qui en fait une formation d'excellence. Le programme en mathématiques est varié (analyse, algèbre, probabilités) et ambitieux.</p>
+      <p>Malgré les difficultés rencontrées en début de semestre, Zakaria ne se décourage pas et travaille avec beaucoup d'application, de sérieux et de régularité. Il a déjà beaucoup progressé aussi bien à l'écrit qu'à l'oral, même si ses résultats, dans une classe d'un haut niveau, restent modestes.</p>
+      <p>Il a également acquis des méthodes de travail efficaces, des capacités d'analyses et de raisonnements et une aisance à l'oral.</p>
+      <p>Zakaria mérite votre confiance et je ne doute pas qu'il saura vous apporter entière satisfaction dans votre formation.</p>
+      <p style="margin-top:20px; font-style:normal; color:var(--text)"><strong>Cécile LARDON</strong><br>Professeure de chaire supérieure de mathématiques · Lycée du Parc</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal4" onclick="closeModal(event, 'modal4')">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('modal4').classList.remove('open')">×</button>
+    <div class="modal-author-header">
+      <div class="modal-avatar">FC</div>
+      <div>
+        <div class="modal-name">Farah Cherfaoui</div>
+        <div class="modal-role">Maître de conférences & Resp. L3 Informatique · UJM</div>
+        <div class="modal-date">25 février 2026</div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <p>À qui de droit, Madame, Monsieur,</p>
+      <p>J'ai connu Zakaria BEKHOUCHE lors de sa première année de licence, dans le portail commun MIPC (Mathématiques-Physique-Chimie-Informatique). Ce portail permet aux étudiants qui y passent d'acquérir des notions de base dans les quatre domaines disciplinaires.</p>
+      <p>Zakaria est un étudiant très sérieux, appliqué et très actif en classe. Il participe de manière active, pose des questions très pertinentes et contribue positivement à la dynamique du groupe, ce qui fait de lui un étudiant très apprécié.</p>
+      <p>Dans mon UE « Outils informatiques 1 », il a été très investi, rigoureux dans son travail et particulièrement agréable à avoir en cours. Il s'est pleinement impliqué dans les TP de programmation Python et a su être un élément moteur dans son groupe.</p>
+      <p>Au-delà de ses compétences académiques, Zakaria se distingue par sa motivation et sa constance dans l'effort. Je suis convaincue qu'il saura mettre à profit ces qualités dans la poursuite de son parcours.</p>
+      <p style="margin-top:20px; font-style:normal; color:var(--text)"><strong>Farah Cherfaoui</strong><br>Responsable de la Licence 3 Informatique · UJM</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal5" onclick="closeModal(event, 'modal5')">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('modal5').classList.remove('open')">×</button>
+    <div class="modal-author-header">
+      <div class="modal-avatar">VD</div>
+      <div>
+        <div class="modal-name">Dr. Vincenzo De Michele</div>
+        <div class="modal-role">Maître de conférences · Laboratoire Hubert Curien, UJM</div>
+        <div class="modal-date">Saint-Étienne, 10 March 2026</div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <p>To whom it may concern,</p>
+      <p>Mr. Zakaria Bekhouche was a student in the courses Electromagnetism, Interference and Diffraction, and Introduction to Solid State Physics that I taught at Université Jean Monnet.</p>
+      <p>Over the duration of these courses, he completed the required coursework and examinations with satisfactory results. His work showed an adequate understanding of the principal concepts introduced in class, as well as the ability to engage with standard problems in the field.</p>
+      <p>Mr. Bekhouche also demonstrated the capacity to present scientific material in a structured and understandable way, both in written work and in oral presentations. These elements suggest that he has acquired an appropriate academic foundation in physics.</p>
+      <p>Please feel free to contact me if further information regarding Mr. Bekhouche's academic record is required.</p>
+      <p style="margin-top:20px; font-style:normal; color:var(--text)"><strong>Vincenzo DE MICHELE</strong><br>Maître de conférences · Laboratoire Hubert Curien, UJM</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal6" onclick="closeModal(event, 'modal6')">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('modal6').classList.remove('open')">×</button>
+    <div class="modal-author-header">
+      <div class="modal-avatar">DP</div>
+      <div>
+        <div class="modal-name">David Pietroy, Ph.D.</div>
+        <div class="modal-role">Responsable Licence Physique · UJM</div>
+        <div class="modal-date">Saint-Étienne, 13 mars 2026</div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <p><strong>AVIS DE POURSUITE D'ÉTUDES</strong></p>
+      <p>Nom : Bekhouche — Prénom : Zakaria<br>Formation actuelle : L3 Physique option Physique Appliquée et Avancée<br>Formation demandée : Master</p>
+      <table style="width:100%; font-size:13px; border-collapse:collapse; margin-top:16px;">
+        <tr style="border-bottom:1px solid var(--border)">
+          <td style="padding:8px 0; color:var(--muted)">Résultats dans la filière demandée</td>
+          <td style="padding:8px 0; text-align:right; font-weight:500;">Bon</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border)">
+          <td style="padding:8px 0; color:var(--muted)">Résultats scientifiques théoriques</td>
+          <td style="padding:8px 0; text-align:right; font-weight:500;">Correct</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border)">
+          <td style="padding:8px 0; color:var(--muted)">Résultats scientifiques expérimentaux</td>
+          <td style="padding:8px 0; text-align:right; font-weight:500;">Correct</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border)">
+          <td style="padding:8px 0; color:var(--muted)">Esprit d'équipe</td>
+          <td style="padding:8px 0; text-align:right; font-weight:500;">Bon</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border)">
+          <td style="padding:8px 0; color:var(--muted)">Autonomie</td>
+          <td style="padding:8px 0; text-align:right; font-weight:500;">Bon</td>
+        </tr>
+        <tr>
+          <td style="padding:8px 0; color:var(--muted)">Initiative</td>
+          <td style="padding:8px 0; text-align:right; font-weight:500;">Correct</td>
+        </tr>
+      </table>
+      <p style="margin-top:20px; font-style:normal; color:var(--text)"><strong>David PIETROY, Ph.D.</strong><br>Responsable Licence Physique · Laboratoire Hubert Curien, UJM</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openModal(id) {
+    document.getElementById(id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(e, id) {
+    if (e.target === e.currentTarget) {
+      document.getElementById(id).classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+  document.querySelectorAll('.modal-close').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.closest('.modal-overlay').classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Smooth nav highlight
+  const sections = document.querySelectorAll('section[id], div[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current
+        ? 'var(--text)' : '';
+    });
+  });
+</script>
+</body>
+</html>
