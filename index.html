@@ -1,22 +1,270 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Portfolio - Bekhouche Zakaria</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .section-num {
+            display: block;
+            font-size: 0.9em;
+            letter-spacing: 2px;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        .latex-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .latex-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .latex-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .latex-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .latex-meta {
+            color: #667eea;
+            font-size: 0.85em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .latex-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .latex-desc {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .project-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.9em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .project-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .footer-note {
+            text-align: center;
+            color: white;
+            font-size: 0.9em;
+            opacity: 0.8;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .section-title {
+                font-size: 1.8em;
+            }
+
+            .latex-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>LaTeX Section</h1>
-    <p>Here are the PDF documents:</p>
-    <ul>
-        <li><a href="./Capacite_Professionnelle_de_Transport_de_Marchandises.pdf">Capacité Professionnelle de Transport de Marchandises</a></li>
-        <li><a href="./Compte_Rendu_Relativité_prepa.pdf">Compte Rendu Relativité Prépa</a></li>
-        <li><a href="./Compte_Rendu_TP_Physique_Statistique.pdf">Compte Rendu TP Physique Statistique</a></li>
-        <li><a href="./Compte_Rendu_TP_Relativité.pdf">Compte Rendu TP Relativité</a></li>
-        <li><a href="./Cours_Maths.pdf">Cours Maths</a></li>
-        <li><a href="./Mecanique_Quantique_corrigé.pdf">Mécanique Quantique Corrigé</a></li>
-        <li><a href="./Physique_statistique_corrigées.pdf">Physique Statistique Corrigées</a></li>
-        <li><a href="./Vision.pdf">Vision</a></li>
-    </ul>
+    <header>
+        <h1>Portfolio - Bekhouche Zakaria</h1>
+        <p>Rédaction scientifique de qualité</p>
+    </header>
+
+    <main>
+        <!-- ========== SECTION TRAVAUX LATEX ========== -->
+        <section id="latex">
+            <div class="section-header">
+                <span class="section-num">04 — Travaux LaTeX</span>
+                <h2 class="section-title">Rédaction scientifique<br>de qualité</h2>
+            </div>
+            <div class="latex-grid">
+
+                <!-- 1. Cours maths 3e -->
+                <div class="latex-card">
+                    <div class="latex-icon">📘</div>
+                    <div class="latex-meta">Cours & exercices corrigés</div>
+                    <div class="latex-title">Calcul littéral, fractions, puissances de 10</div>
+                    <div class="latex-desc">Cours complet pour la 3e, avec rappels, exemples et exercices corrigés pas à pas. Rédigé sous LaTeX.</div>
+                    <div class="project-links">
+                        <a href="./Cours_Maths.pdf" class="project-link" target="_blank">📄 Télécharger PDF</a>
+                    </div>
+                </div>
+
+                <!-- 2. Physique statistique -->
+                <div class="latex-card">
+                    <div class="latex-icon">⚛️</div>
+                    <div class="latex-meta">Cours & TD corrigés</div>
+                    <div class="latex-title">Physique statistique – Ensemble microcanonique et canonique</div>
+                    <div class="latex-desc">Notions d'espace des phases, théorème de Liouville, distribution binomiale, oscillateurs, modèle de Debye. Corrections détaillées.</div>
+                    <div class="project-links">
+                        <a href="./Physique_statistique_corrigýes.pdf" class="project-link" target="_blank">📄 Télécharger PDF</a>
+                    </div>
+                </div>
+
+                <!-- 3. Capacité professionnelle transport -->
+                <div class="latex-card">
+                    <div class="latex-icon">🚛</div>
+                    <div class="latex-meta">Quiz & révision</div>
+                    <div class="latex-title">Capacité professionnelle – Transport de marchandises</div>
+                    <div class="latex-desc">29 questions-réponses détaillées sur la réglementation, sécurité, gestion, douanes, environnement, etc.</div>
+                    <div class="project-links">
+                        <a href="./Capacite_Professionnelle_de_Transport_de_Marchandises.pdf" class="project-link" target="_blank">📄 Télécharger PDF</a>
+                    </div>
+                </div>
+
+                <!-- 4. Mécanique quantique -->
+                <div class="latex-card">
+                    <div class="latex-icon">🔬</div>
+                    <div class="latex-meta">Cours & TD corrigés</div>
+                    <div class="latex-title">Mécanique quantique – Postulats, puits, oscillateur harmonique</div>
+                    <div class="latex-desc">Origines, équation de Schrödinger, barrières, effet tunnel, formalisme de Dirac, opérateurs d'échelle. Exercices détaillés.</div>
+                    <div class="project-links">
+                        <a href="./Mecanique_Quantique_corrigý.pdf" class="project-link" target="_blank">📄 Télécharger PDF</a>
+                    </div>
+                </div>
+
+                <!-- 5. Vision & traitement d'images -->
+                <div class="latex-card">
+                    <div class="latex-icon">🖼️</div>
+                    <div class="latex-meta">Cours + examen corrigé</div>
+                    <div class="latex-title">Vision & traitement d'images – Filtrage, Fourier, morphologie</div>
+                    <div class="latex-desc">Acquisition, convolution, passe-bas/haut, histogramme, érosion/dilatation, codage. Corrigé d'examen détaillé.</div>
+                    <div class="project-links">
+                        <a href="./Vision.pdf" class="project-link" target="_blank">📄 Télécharger PDF</a>
+                    </div>
+                </div>
+
+                <!-- 6. TP Modèle d'Ising -->
+                <div class="latex-card">
+                    <div class="latex-icon">🧲</div>
+                    <div class="latex-meta">Compte rendu de TP</div>
+                    <div class="latex-title">Modèle d'Ising 2D – Algorithme de Metropolis</div>
+                    <div class="latex-desc">Simulation Monte Carlo, aimantation, transition de phase, hystérésis, effets de taille finie. Programmes Python inclus.</div>
+                    <div class="project-links">
+                        <a href="./Compte_Rendu_TP_Physique_Statistique.pdf" class="project-link" target="_blank">📄 Télécharger PDF</a>
+                    </div>
+                </div>
+
+                <!-- 7. TP Relativité restreinte -->
+                <div class="latex-card">
+                    <div class="latex-icon">⏱️</div>
+                    <div class="latex-meta">Compte rendu de TP</div>
+                    <div class="latex-title">Transformations de Lorentz – Relativité restreinte</div>
+                    <div class="latex-desc">Simulation Python, inversion chronologique, invariant d'espace-temps, paradoxe des jumeaux, désintégration de particules.</div>
+                    <div class="project-links">
+                        <a href="./Compte_Rendu_TP_Relativité.pdf" class="project-link" target="_blank">📄 Télécharger PDF</a>
+                    </div>
+                </div>
+
+                <!-- 8. Modèle d'Ising – Synthèse -->
+                <div class="latex-card">
+                    <div class="latex-icon">📊</div>
+                    <div class="latex-meta">Compte rendu (version synthétique)</div>
+                    <div class="latex-title">Modèle d'Ising – Synthèse des résultats</div>
+                    <div class="latex-desc">Version abrégée du TP Ising, mettant l'accent sur les observables et la convergence.</div>
+                    <div class="project-links">
+                        <a href="./Compte_Rendu_Relativité_prepa.pdf" class="project-link" target="_blank">📄 Télécharger PDF</a>
+                    </div>
+                </div>
+
+            </div>
+            <p class="footer-note">
+                🔗 Les PDF sont directement accessibles et téléchargeables.
+            </p>
+        </section>
+    </main>
 </body>
 </html>
