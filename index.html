@@ -277,8 +277,7 @@
     border-radius: 12px; padding: 20px;
     text-align: center;
   }
-  .lang-flag { font-size: 28px; margin-bottom: 8px; }
-  .lang-name { font-weight: 500; margin-bottom: 4px; }
+  .lang-name { font-weight: 500; margin-bottom: 4px; font-size: 15px; }
   .lang-level { font-size: 12px; color: var(--muted); }
 
   /* RECOMMANDATIONS */
@@ -394,7 +393,42 @@
   .hero-desc { animation-delay: 0.2s; }
   .hero-ctas { animation-delay: 0.3s; }
 
+  /* TRAVAUX */
+  .travaux-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .travaux-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 22px 24px;
+    display: flex; align-items: flex-start; gap: 16px;
+    text-decoration: none; color: inherit;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .travaux-card:hover { border-color: rgba(74,122,37,0.35); transform: translateY(-2px); }
+  .travaux-icon {
+    width: 42px; height: 42px; border-radius: 10px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 500;
+  }
+  .ti-physics { background: #EAF0FF; color: #2D4EA0; }
+  .ti-math { background: #E8F0DC; color: #2D5016; }
+  .ti-vision { background: #FFF4E0; color: #8A5900; }
+  .ti-other { background: #F0E8FF; color: #5B2D9E; }
+  .travaux-info { flex: 1; min-width: 0; }
+  .travaux-title { font-size: 14px; font-weight: 500; margin-bottom: 4px; line-height: 1.4; }
+  .travaux-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+  .travaux-tag {
+    display: inline-block; margin-top: 10px;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.05em;
+    padding: 3px 8px; border-radius: 100px;
+    background: var(--surface); color: var(--muted);
+  }
+  .travaux-dl {
+    font-size: 12px; color: var(--accent-light); margin-top: 8px;
+    display: flex; align-items: center; gap: 4px;
+  }
+
   @media (max-width: 768px) {
+    .travaux-grid { grid-template-columns: 1fr; }
+  }
     nav { padding: 0 24px; }
     .nav-links { display: none; }
     section { padding: 64px 24px; }
@@ -420,6 +454,7 @@
     <li><a href="#projets">Projets</a></li>
     <li><a href="#competences">Compétences</a></li>
     <li><a href="#recommandations">Recommandations</a></li>
+    <li><a href="#travaux">Mes travaux</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -427,8 +462,8 @@
 <!-- HERO -->
 <section class="hero" style="padding-top:100px; max-width:none;">
   <div class="hero-inner">
-    <div class="hero-tag">Disponible — Stage Laboratoire · Avr – Juin 2026</div>
-    <h1>Zakaria<br>Bekhouche<br><em>Physicien</em></h1>
+    <div class="hero-tag">Stage en cours — ENS de Lyon · Avr – Juin 2026</div>
+    <h1>Zakaria<br>Bekhouche<br><em>En préparation d'un Master en Physique</em></h1>
     <p class="hero-desc">Étudiant en Physique Appliquée & Avancée à l'Université Jean Monnet. Passionné par les phénomènes ondulatoires, la modélisation scientifique et la transmission du savoir.</p>
     <div class="hero-ctas">
       <a href="#recommandations" class="btn-primary">Voir mes recommandations →</a>
@@ -442,7 +477,7 @@
   <div class="stat"><div class="stat-num">6</div><div class="stat-label">Lettres de recommandation</div></div>
   <div class="stat"><div class="stat-num">3</div><div class="stat-label">Années de licence</div></div>
   <div class="stat"><div class="stat-num">4</div><div class="stat-label">Projets réalisés</div></div>
-  <div class="stat"><div class="stat-num">2</div><div class="stat-label">Ans d'enseignement</div></div>
+  <div class="stat"><div class="stat-num">8</div><div class="stat-label">Documents & travaux</div></div>
 </div>
 
 <!-- À PROPOS -->
@@ -542,8 +577,9 @@
     <div class="project-card featured">
       <div>
         <span class="project-badge badge-stage">Stage · En cours</span>
-        <div class="project-title">Stage en Laboratoire de Physique</div>
-        <div class="project-desc">Stage conventionné dans un laboratoire de physique, du 27 avril au 19 juin 2026. Mise en œuvre des méthodes de recherche expérimentale, modélisation scientifique et rédaction de rapports de recherche.</div>
+        <div class="project-title">Stage de recherche — ENS de Lyon</div>
+        <div class="project-desc">Numérisation de papiers photographiques d'arts et analyses statistiques multi-échelles de textures. Mise en œuvre de techniques d'acquisition d'images, de traitement numérique et d'analyse statistique pour l'étude et la caractérisation de supports photographiques patrimoniaux.</div>
+        <div style="margin-top:12px; font-size:13px; color:var(--muted)">Du 27 avril au 19 juin 2026 · École Normale Supérieure de Lyon</div>
       </div>
       <div class="project-year">Avr – Juin 2026</div>
     </div>
@@ -637,17 +673,14 @@
   </div>
   <div class="lang-grid" style="margin-top:48px;">
     <div class="lang-card">
-      <div class="lang-flag">🇫🇷</div>
       <div class="lang-name">Français</div>
       <div class="lang-level">Langue maternelle</div>
     </div>
     <div class="lang-card">
-      <div class="lang-flag">🇬🇧</div>
       <div class="lang-name">Anglais</div>
       <div class="lang-level">Bilingue</div>
     </div>
     <div class="lang-card">
-      <div class="lang-flag">🇩🇿</div>
       <div class="lang-name">Arabe</div>
       <div class="lang-level">Conversationnel</div>
     </div>
@@ -738,10 +771,103 @@
   </div>
 </section>
 
+<!-- MES TRAVAUX -->
+<section id="travaux" style="background:var(--surface); max-width:none; padding-left:0; padding-right:0;">
+  <div style="max-width:1000px; margin:0 auto; padding:96px 48px;">
+  <div class="section-header">
+    <span class="section-num">06 — Mes travaux</span>
+    <h2 class="section-title">Documents &<br>comptes rendus</h2>
+  </div>
+  <div class="travaux-grid">
+
+    <a class="travaux-card" href="travaux/Compte_Rendu_TP_Physique_Statistique.pdf" target="_blank">
+      <div class="travaux-icon ti-physics">⟨ψ⟩</div>
+      <div class="travaux-info">
+        <div class="travaux-title">Compte rendu TP — Modèle d'Ising & Algorithme de Metropolis</div>
+        <div class="travaux-desc">Simulation Monte-Carlo du modèle d'Ising 2D. Aimantation, capacité thermique et susceptibilité en fonction de la température. L3 — JP Colombier, UJM.</div>
+        <span class="travaux-tag">Physique statistique</span>
+        <div class="travaux-dl">Consulter le document →</div>
+      </div>
+    </a>
+
+    <a class="travaux-card" href="travaux/Compte_Rendu_TP_Relativit%FD.pdf" target="_blank">
+      <div class="travaux-icon ti-physics">γ</div>
+      <div class="travaux-info">
+        <div class="travaux-title">Compte rendu TP — Relativité restreinte & Transformations de Lorentz</div>
+        <div class="travaux-desc">Étude des transformations de Lorentz et leurs effets sur les séquences chronologiques entre référentiels. Simulation Python lorentz.py. L3 UJM.</div>
+        <span class="travaux-tag">Relativité restreinte</span>
+        <div class="travaux-dl">Consulter le document →</div>
+      </div>
+    </a>
+
+    <a class="travaux-card" href="travaux/Mecanique_Quantique_corrig%FD.pdf" target="_blank">
+      <div class="travaux-icon ti-physics">Ĥ</div>
+      <div class="travaux-info">
+        <div class="travaux-title">Mécanique Quantique — Cours & corrections des TD</div>
+        <div class="travaux-desc">Cours pédagogique approfondi (chapitres 1 à 6) et corrections détaillées des 4 feuilles de TD. Intuition physique, démonstrations pas à pas. L3 UJM 2025-2026.</div>
+        <span class="travaux-tag">Mécanique quantique</span>
+        <div class="travaux-dl">Consulter le document →</div>
+      </div>
+    </a>
+
+    <a class="travaux-card" href="travaux/Physique_statistique_corrig%FDes.pdf" target="_blank">
+      <div class="travaux-icon ti-physics">S</div>
+      <div class="travaux-info">
+        <div class="travaux-title">Physique Statistique — Cours & corrections des TD</div>
+        <div class="travaux-desc">Cours pédagogique (chapitres I à III) et corrections étape par étape des feuilles de TD 1, 2, 2.3 et partie du 3. L3 UJM 2025-2026.</div>
+        <span class="travaux-tag">Physique statistique</span>
+        <div class="travaux-dl">Consulter le document →</div>
+      </div>
+    </a>
+
+    <a class="travaux-card" href="travaux/Vision.pdf" target="_blank">
+      <div class="travaux-icon ti-vision">FFT</div>
+      <div class="travaux-info">
+        <div class="travaux-title">Vision & Traitement d'images — Cours & correction d'examen</div>
+        <div class="travaux-desc">Notions fondamentales : acquisition, filtrage, transformée de Fourier, morphologie, codage. Correction complète de l'examen final 2026, calculs détaillés.</div>
+        <span class="travaux-tag">Traitement d'images</span>
+        <div class="travaux-dl">Consulter le document →</div>
+      </div>
+    </a>
+
+    <a class="travaux-card" href="travaux/Cours_Maths.pdf" target="_blank">
+      <div class="travaux-icon ti-math">∑</div>
+      <div class="travaux-info">
+        <div class="travaux-title">Cours de Mathématiques — Calcul littéral, fractions & puissances</div>
+        <div class="travaux-desc">Document pédagogique destiné aux élèves de 3e : calcul littéral, fractions et puissances de 10. Exercices corrigés détaillés. Conçu dans le cadre des cours particuliers.</div>
+        <span class="travaux-tag">Mathématiques · Collège</span>
+        <div class="travaux-dl">Consulter le document →</div>
+      </div>
+    </a>
+
+    <a class="travaux-card" href="travaux/Compte_Rendu_Relativit%FD_prepa.pdf" target="_blank">
+      <div class="travaux-icon ti-physics">c²</div>
+      <div class="travaux-info">
+        <div class="travaux-title">TP Physique Statistique — Modèle d'Ising (version préparatoire)</div>
+        <div class="travaux-desc">Version préparatoire du compte rendu sur le modèle d'Ising et l'algorithme de Metropolis. Présentation des objectifs et de la méthodologie.</div>
+        <span class="travaux-tag">Physique statistique</span>
+        <div class="travaux-dl">Consulter le document →</div>
+      </div>
+    </a>
+
+    <a class="travaux-card" href="travaux/Capacite_Professionnelle_de_Transport_de_Marchandises.pdf" target="_blank">
+      <div class="travaux-icon ti-other">⚖</div>
+      <div class="travaux-info">
+        <div class="travaux-title">Quiz — Capacité Professionnelle de Transport de Marchandises</div>
+        <div class="travaux-desc">Quiz complet sur la capacité professionnelle de transport de marchandises en France : réglementation, sécurité, gestion et aspects juridiques. Réponses argumentées.</div>
+        <span class="travaux-tag">Réglementation · Transport</span>
+        <div class="travaux-dl">Consulter le document →</div>
+      </div>
+    </a>
+
+  </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <div class="contact-section" id="contact">
   <h2>Travaillons ensemble</h2>
-  <p>À la recherche d'un stage en laboratoire de physique pour avril-juin 2026. N'hésitez pas à me contacter.</p>
+  <p>Actuellement en stage à l'ENS de Lyon, en préparation d'un Master en Physique. N'hésitez pas à me contacter.</p>
   <a href="mailto:zakaria.bekhouche@etu.univ-st-etienne.fr" class="contact-email">zakaria.bekhouche@etu.univ-st-etienne.fr</a>
 </div>
 
