@@ -54,9 +54,11 @@
   /* HERO */
   .hero {
     min-height: 100vh;
-    display: flex; align-items: center;
+    display: flex;
+    align-items: center;
     padding: 100px 48px 80px;
-    position: relative; overflow: hidden;
+    position: relative;
+    overflow: hidden;
   }
   .hero::before {
     content: '';
@@ -66,7 +68,12 @@
     background: radial-gradient(circle, rgba(74,122,37,0.08) 0%, transparent 70%);
     pointer-events: none;
   }
-  .hero-inner { max-width: 900px; }
+  .hero-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
   .hero-tag {
     display: inline-flex; align-items: center; gap: 8px;
     font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
@@ -441,6 +448,14 @@
     .timeline-date { text-align: left; padding-right: 0; }
     .stats { flex-wrap: wrap; }
     .stat { min-width: 50%; border-right: none; border-bottom: 1px solid var(--border); }
+    .hero-inner {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .hero-desc { max-width: 100%; }
+    .hero-ctas { justify-content: center; }
+    .hero-inner > div:last-child { margin-left: 0 !important; margin-top: 32px; }
   }
 </style>
 </head>
@@ -461,7 +476,7 @@
 
 <!-- HERO -->
 <section class="hero" style="padding-top:100px; max-width:none;">
-  <div class="hero-inner" style="display:flex; align-items:center; justify-content:space-between; width:100%;">
+  <div class="hero-inner">
     <div style="flex:1; min-width:0; max-width:600px;">
       <div class="hero-tag">Stage en cours — ENS de Lyon · Avr  Juillet 2026</div>
       <h1>Zakaria<br>Bekhouche<br><em>En préparation d'un Master en Physique</em></h1>
@@ -471,7 +486,7 @@
         <a href="#contact" class="btn-outline">Me contacter</a>
       </div>
     </div>
-    <div style="flex-shrink:0; margin-left: 40px;">
+    <div style="flex-shrink:0; margin-left: auto;">
       <div style="
         width:260px; height:260px; border-radius:50%;
         overflow:hidden;
