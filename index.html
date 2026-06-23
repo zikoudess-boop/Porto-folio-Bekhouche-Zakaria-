@@ -54,13 +54,9 @@
   /* HERO */
   .hero {
     min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center;
     padding: 100px 48px 80px;
-    position: relative;
-    overflow: hidden;
-    text-align: center;
+    position: relative; overflow: hidden;
   }
   .hero::before {
     content: '';
@@ -70,10 +66,7 @@
     background: radial-gradient(circle, rgba(74,122,37,0.08) 0%, transparent 70%);
     pointer-events: none;
   }
-  .hero-inner {
-    max-width: 800px;
-    margin: 0 auto;
-  }
+  .hero-inner { max-width: 900px; }
   .hero-tag {
     display: inline-flex; align-items: center; gap: 8px;
     font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
@@ -99,11 +92,10 @@
   }
   .hero h1 em { font-style: italic; color: var(--muted); }
   .hero-desc {
-    font-size: 18px; color: var(--muted); max-width: 600px;
-    line-height: 1.65; margin: 0 auto 48px;
-    font-weight: 300;
+    font-size: 18px; color: var(--muted); max-width: 520px;
+    line-height: 1.65; margin-bottom: 48px; font-weight: 300;
   }
-  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
   .btn-primary {
     display: inline-flex; align-items: center; gap: 8px;
     background: var(--accent); color: #fff;
@@ -468,14 +460,28 @@
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-tag">Stage en cours — ENS de Lyon · Avr  Juillet 2026</div>
-    <h1>Zakaria<br>Bekhouche<br><em>En préparation d'un Master en Physique</em></h1>
-    <p class="hero-desc">Étudiant en Physique Appliquée & Avancée à l'Université Jean Monnet. Passionné par les phénomènes ondulatoires, la modélisation scientifique et la transmission du savoir.</p>
-    <div class="hero-ctas">
-      <a href="#recommandations" class="btn-primary">Voir mes recommandations →</a>
-      <a href="#contact" class="btn-outline">Me contacter</a>
+<section class="hero" style="padding-top:100px; max-width:none;">
+  <div class="hero-inner" style="display:flex; align-items:center; gap:120px; width:100%; max-width:1000px;">
+    <div style="flex:1; min-width:0;">
+      <div class="hero-tag">Stage en cours — ENS de Lyon · Avr  Juillet 2026</div>
+      <h1>Zakaria<br>Bekhouche<br><em>En préparation d'un Master en Physique</em></h1>
+      <p class="hero-desc">Étudiant en Physique Appliquée & Avancée à l'Université Jean Monnet. Passionné par les phénomènes ondulatoires, la modélisation scientifique et la transmission du savoir.</p>
+      <div class="hero-ctas">
+        <a href="#recommandations" class="btn-primary">Voir mes recommandations →</a>
+        <a href="#contact" class="btn-outline">Me contacter</a>
+      </div>
+    </div>
+    <div style="flex-shrink:0;">
+      <div style="
+        width:260px; height:260px; border-radius:50%;
+        overflow:hidden;
+        border:4px solid white;
+        box-shadow:0 8px 32px rgba(45,80,22,0.15), 0 2px 8px rgba(0,0,0,0.08);
+      ">
+        <img src="Moi.png"
+             alt="Zakaria Bekhouche"
+             style="width:100%; height:100%; object-fit:cover; object-position:center 20%;" />
+      </div>
     </div>
   </div>
 </section>
