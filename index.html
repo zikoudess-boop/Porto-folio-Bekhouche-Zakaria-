@@ -54,9 +54,13 @@
   /* HERO */
   .hero {
     min-height: 100vh;
-    display: flex; align-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 100px 48px 80px;
-    position: relative; overflow: hidden;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
   }
   .hero::before {
     content: '';
@@ -66,7 +70,10 @@
     background: radial-gradient(circle, rgba(74,122,37,0.08) 0%, transparent 70%);
     pointer-events: none;
   }
-  .hero-inner { max-width: 900px; }
+  .hero-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
   .hero-tag {
     display: inline-flex; align-items: center; gap: 8px;
     font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
@@ -92,10 +99,11 @@
   }
   .hero h1 em { font-style: italic; color: var(--muted); }
   .hero-desc {
-    font-size: 18px; color: var(--muted); max-width: 520px;
-    line-height: 1.65; margin-bottom: 48px; font-weight: 300;
+    font-size: 18px; color: var(--muted); max-width: 600px;
+    line-height: 1.65; margin: 0 auto 48px;
+    font-weight: 300;
   }
-  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
   .btn-primary {
     display: inline-flex; align-items: center; gap: 8px;
     background: var(--accent); color: #fff;
@@ -460,7 +468,7 @@
 </nav>
 
 <!-- HERO -->
-<section class="hero" style="padding-top:100px; max-width:none;">
+<section class="hero">
   <div class="hero-inner">
     <div class="hero-tag">Stage en cours — ENS de Lyon · Avr  Juillet 2026</div>
     <h1>Zakaria<br>Bekhouche<br><em>En préparation d'un Master en Physique</em></h1>
