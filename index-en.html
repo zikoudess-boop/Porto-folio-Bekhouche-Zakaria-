@@ -483,7 +483,7 @@
 
 <!-- STATS -->
 <div class="stats" style="max-width:none;">
-  <div class="stat"><div class="stat-num">6</div><div class="stat-label">Letters of recommendation</div></div>
+  <div class="stat"><div class="stat-num">6</div><div class="stat-label">Recommendation letters incl. CNRS/ENS Lyon</div></div>
   <div class="stat"><div class="stat-num">3</div><div class="stat-label">Years of undergraduate study</div></div>
   <div class="stat"><div class="stat-num">4</div><div class="stat-label">Projects completed</div></div>
   <div class="stat"><div class="stat-num">7</div><div class="stat-label">Documents & reports</div></div>
@@ -708,6 +708,32 @@
   </div>
   <div class="reco-grid">
 
+    <!-- CNRS / ENS Lyon — featured full-width card -->
+    <div class="reco-card" onclick="openModal('modal0')" style="grid-column:1/-1; border-color:rgba(74,122,37,0.35); background:linear-gradient(135deg,var(--card) 0%,var(--accent-bg) 100%);">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
+        <span style="font-size:11px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; background:var(--accent); color:#fff; padding:4px 12px; border-radius:100px;">⭐ CNRS · ENS de Lyon</span>
+        <span style="font-size:11px; color:var(--muted);">July 2026 · Co-signed by two CNRS Research Directors</span>
+      </div>
+      <div class="reco-text" style="font-size:15px;">"Zakaria Bekhouche completed an excellent internship during which he demonstrated versatile and interdisciplinary competence. He was motivated, determined, inventive, and hardworking — often driving proposals forward with great energy. <strong style="color:var(--text); font-style:normal;">We unreservedly support his application.</strong>"</div>
+      <div style="display:flex; gap:24px; flex-wrap:wrap; margin-top:16px;">
+        <div class="reco-author">
+          <div class="reco-avatar" style="background:var(--accent); color:#fff;">MB</div>
+          <div>
+            <div class="reco-name">Mickaël Bourgoin</div>
+            <div class="reco-role">CNRS Research Director · Deputy Director, Laboratoire de Physique, ENS Lyon</div>
+          </div>
+        </div>
+        <div class="reco-author">
+          <div class="reco-avatar" style="background:var(--accent); color:#fff;">PA</div>
+          <div>
+            <div class="reco-name">Patrice Abry</div>
+            <div class="reco-role">CNRS Research Director · Director, Institut Rhônalpin des Systèmes Complexes</div>
+          </div>
+        </div>
+      </div>
+      <div class="reco-expand" style="margin-top:16px;">Read the full letter →</div>
+    </div>
+
     <div class="reco-card" onclick="openModal('modal1')">
       <div class="reco-text">"Curious and motivated, he showed genuine interest in these courses. His training and commitment should allow him to pursue a Master's program under good conditions."</div>
       <div class="reco-author">
@@ -766,18 +792,6 @@
         </div>
       </div>
       <div class="reco-expand">Read the full letter →</div>
-    </div>
-
-    <div class="reco-card" onclick="openModal('modal6')">
-      <div class="reco-text">"Results in the program of interest: Good. Theoretical scientific results: Satisfactory. Experimental scientific results: Satisfactory. Team spirit: Good. Autonomy: Good."</div>
-      <div class="reco-author">
-        <div class="reco-avatar">DP</div>
-        <div>
-          <div class="reco-name">David Pietroy, Ph.D.</div>
-          <div class="reco-role">Head of Physics Bachelor's Program · Hubert Curien Laboratory, UJM</div>
-        </div>
-      </div>
-      <div class="reco-expand">Read the full assessment →</div>
     </div>
 
   </div>
@@ -868,6 +882,35 @@
 </footer>
 
 <!-- MODALS -->
+<div class="modal-overlay" id="modal0" onclick="closeModal(event, 'modal0')">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('modal0').classList.remove('open')">×</button>
+    <div class="modal-author-header">
+      <div class="modal-avatar" style="background:var(--accent); color:#fff; font-size:14px;">CNRS</div>
+      <div>
+        <div class="modal-name">Mickaël Bourgoin & Patrice Abry</div>
+        <div class="modal-role">CNRS Research Directors · Laboratoire de Physique, ENS de Lyon</div>
+        <div class="modal-date">Lyon, July 8, 2026</div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <p>Dear colleagues,</p>
+      <p>We had the pleasure of working with Zakaria Bekhouche since early May 2026, as part of his third-year undergraduate internship.</p>
+      <p>This internship is part of a collaboration between the Laboratoire de Physique of ENS de Lyon and the Musée des Confluences. Its aim is to characterize the texture of artistic photographic paper in order to measure similarities or differences between the papers on which different photographs are developed.</p>
+      <p>A first, essential part of Zakaria's internship consisted in developing a digitization device. He made a significant contribution to the design of an optical system enabling raking-light illumination of the surface of interest, using an LED strip mounted on a device he designed and built using a 3D printer. He also wrote the Python code to control a printer stage, repurposed to automate the selection, digitization, and saving of images and associated metadata. He then used this device to digitize a large collection of around one hundred museum photographs.</p>
+      <p>In a second phase, Zakaria familiarized himself with the multiscale (wavelet-based) texture analysis tools already developed in the laboratory to characterize the multiscale statistical properties of textures, and used these characterizations to match and classify the digitized photographic papers.</p>
+      <p>In a third phase, Zakaria made a major contribution to the exploitation of the analysis results by independently developing Python tools that allow museum curators to automatically visualize the clusters of images obtained, or the similarities between the textures of nearest neighbors. This phase proved essential for interdisciplinary interaction between the museum curators and our team.</p>
+      <p>In summary, Zakaria Bekhouche completed an excellent internship during which he demonstrated versatile and interdisciplinary competence spanning optical device design, digitization, data analysis, and the development of visualization software.</p>
+      <p>Throughout each of these phases, he was motivated, determined, inventive, and hardworking. He quickly acquired the knowledge needed to advance his project, was often a driving force in proposing solutions, and showed great energy in his work. Working with Zakaria Bekhouche is pleasant and easy.</p>
+      <p><strong>For all these reasons, we unreservedly support his application to the Master's in Fundamental Physics and Applications at Université Lyon 1.</strong></p>
+      <p style="margin-top:20px; font-style:normal; color:var(--text)">
+        <strong>Mickaël Bourgoin</strong><br>CNRS Research Director<br>Deputy Director, Laboratoire de Physique, ENS de Lyon<br><br>
+        <strong>Patrice Abry</strong><br>CNRS Research Director<br>Director, Institut Rhônalpin des Systèmes Complexes
+      </p>
+    </div>
+  </div>
+</div>
+
 <div class="modal-overlay" id="modal1" onclick="closeModal(event, 'modal1')">
   <div class="modal">
     <button class="modal-close" onclick="document.getElementById('modal1').classList.remove('open')">×</button>
