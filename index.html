@@ -483,7 +483,7 @@
 
 <!-- STATS -->
 <div class="stats" style="max-width:none;">
-  <div class="stat"><div class="stat-num">6</div><div class="stat-label">Lettres de recommandation</div></div>
+  <div class="stat"><div class="stat-num">6</div><div class="stat-label">Lettres de recommandation dont CNRS/ENS Lyon</div></div>
   <div class="stat"><div class="stat-num">3</div><div class="stat-label">Années de licence</div></div>
   <div class="stat"><div class="stat-num">4</div><div class="stat-label">Projets réalisés</div></div>
   <div class="stat"><div class="stat-num">7</div><div class="stat-label">Documents & travaux</div></div>
@@ -708,6 +708,32 @@
   </div>
   <div class="reco-grid">
 
+    <!-- CNRS / ENS Lyon — carte featured pleine largeur -->
+    <div class="reco-card" onclick="openModal('modal0')" style="grid-column:1/-1; border-color:rgba(74,122,37,0.35); background:linear-gradient(135deg,var(--card) 0%,var(--accent-bg) 100%);">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
+        <span style="font-size:11px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; background:var(--accent); color:#fff; padding:4px 12px; border-radius:100px;">⭐ CNRS · ENS de Lyon</span>
+        <span style="font-size:11px; color:var(--muted);">Juillet 2026 · Lettre cosignée par deux Directeurs de Recherche CNRS</span>
+      </div>
+      <div class="reco-text" style="font-size:15px;">"Zakaria Bekhouche a réalisé un excellent stage au cours duquel il a montré une compétence polyvalente et interdisciplinaire. Il s'est montré volontaire et déterminé, inventif et travailleur — souvent force de proposition, faisant preuve d'une grande énergie. <strong style="color:var(--text); font-style:normal;">Nous soutenons sans réserve sa candidature.</strong>"</div>
+      <div style="display:flex; gap:24px; flex-wrap:wrap; margin-top:16px;">
+        <div class="reco-author">
+          <div class="reco-avatar" style="background:var(--accent); color:#fff;">MB</div>
+          <div>
+            <div class="reco-name">Mickaël Bourgoin</div>
+            <div class="reco-role">Directeur de Recherche CNRS · Directeur adjoint du Laboratoire de Physique, ENS Lyon</div>
+          </div>
+        </div>
+        <div class="reco-author">
+          <div class="reco-avatar" style="background:var(--accent); color:#fff;">PA</div>
+          <div>
+            <div class="reco-name">Patrice Abry</div>
+            <div class="reco-role">Directeur de Recherche CNRS · Directeur de l'Institut Rhônalpin des Systèmes Complexes</div>
+          </div>
+        </div>
+      </div>
+      <div class="reco-expand" style="margin-top:16px;">Lire la lettre complète →</div>
+    </div>
+
     <div class="reco-card" onclick="openModal('modal1')">
       <div class="reco-text">"Curieux et volontaire, il a montré un réel intérêt pour ces enseignements. Sa formation et son implication devraient lui permettre de poursuivre un parcours de master dans de bonnes conditions."</div>
       <div class="reco-author">
@@ -766,18 +792,6 @@
         </div>
       </div>
       <div class="reco-expand">Read the full letter →</div>
-    </div>
-
-    <div class="reco-card" onclick="openModal('modal6')">
-      <div class="reco-text">"Résultats dans la filière : Bon. Résultats scientifiques théoriques : Correct. Résultats scientifiques expérimentaux : Correct. Esprit d'équipe : Bon. Autonomie : Bon."</div>
-      <div class="reco-author">
-        <div class="reco-avatar">DP</div>
-        <div>
-          <div class="reco-name">David Pietroy, Ph.D.</div>
-          <div class="reco-role">Resp. Licence Physique · Laboratoire Hubert Curien, UJM</div>
-        </div>
-      </div>
-      <div class="reco-expand">Lire l'avis complet →</div>
     </div>
 
   </div>
@@ -868,6 +882,36 @@
 </footer>
 
 <!-- MODALS -->
+<div class="modal-overlay" id="modal0" onclick="closeModal(event, 'modal0')">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('modal0').classList.remove('open')">×</button>
+    <div class="modal-author-header">
+      <div class="modal-avatar" style="background:var(--accent); color:#fff; font-size:14px;">CNRS</div>
+      <div>
+        <div class="modal-name">Mickaël Bourgoin & Patrice Abry</div>
+        <div class="modal-role">Directeurs de Recherche CNRS · Laboratoire de Physique, ENS de Lyon</div>
+        <div class="modal-date">Lyon, 8 juillet 2026</div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <p>Chères et Chers collègues,</p>
+      <p>Nous avons eu le plaisir de travailler avec Zakaria Bekhouche, depuis début mai 2026, dans le cadre de son stage de Licence 3.</p>
+      <p>Ce stage s'inscrit dans une collaboration entre le Laboratoire de Physique de l'ENS de Lyon et le Musée des Confluences. Il a pour objectif de caractériser la texture de papier photographique d'art afin de mesurer les ressemblances ou différences entre les papiers sur lesquels différentes photos sont développées.</p>
+      <p>Une première partie, essentielle, du travail de stage de Zakaria Bekhouche, a consisté au développement d'un dispositif de numérisation. Zakaria Bekhouche a significativement contribué à la conception d'un dispositif optique permettant de réaliser un éclairage rasant de la surface d'intérêt, à l'aide d'une chaîne de LED, collée sur un dispositif qu'il a conçu et réalisé avec une imprimante 3D. Il a aussi écrit le code Python permettant le pilotage du plateau d'une imprimante, dont l'usage a été détourné pour automatiser la sélection, la numérisation et la sauvegarde des images. Il a alors utilisé ce dispositif pour numériser une importante collection d'une centaine de photographies du musée.</p>
+      <p>Dans un deuxième temps, Zakaria Bekhouche s'est approprié les outils d'analyses multiéchelles (ondelettes) d'analyse de texture déjà développés au laboratoire pour caractériser les propriétés statistiques multiéchelles des textures. Il a utilisé ces caractérisations pour apparier et classer les papiers photographiques numérisés.</p>
+      <p>Dans une troisième partie, Zakaria Bekhouche a grandement contribué à l'exploitation des résultats des analyses faites en développant lui-même des outils Python qui permettent aux conservateurs du musée de visualiser automatiquement les clusters d'images obtenus, ou les ressemblances entre les textures des plus proches voisins. Cette dernière phase s'est révélée essentielle pour l'interaction interdisciplinaire entre les conservateurs du musée et notre équipe.</p>
+      <p>En somme Zakaria Bekhouche a réalisé un excellent stage au cours duquel il a montré une compétence polyvalente et interdisciplinaire allant de la conception du dispositif optique, à la numérisation et l'analyse de données et la conception de logiciels de visualisation des résultats.</p>
+      <p>Dans chacune de ces phases, il s'est montré volontaire et déterminé, inventif et travailleur. Il s'est rapidement approprié les connaissances qui lui étaient proposées pour avancer dans son projet. Il a souvent été force de proposition et à fait preuve d'une grande énergie dans son travail.</p>
+      <p>Enfin, le travail avec Zakaria Bekhouche est agréable et facile.</p>
+      <p>Pour toutes ces raisons, il nous paraît pertinent de donner à Zakaria Bekhouche la possibilité de poursuivre sa trajectoire dans le cursus académique qu'il envisage et <strong>nous soutenons sans réserve sa candidature au Master Physique Fondamentale et Applications de l'Université Lyon 1.</strong></p>
+      <p style="margin-top:20px; font-style:normal; color:var(--text)">
+        <strong>Mickaël Bourgoin</strong><br>Directeur de Recherche CNRS<br>Directeur adjoint du Laboratoire de Physique, ENS de Lyon<br><br>
+        <strong>Patrice Abry</strong><br>Directeur de Recherche CNRS<br>Directeur de l'Institut Rhônalpin des Systèmes Complexes
+      </p>
+    </div>
+  </div>
+</div>
+
 <div class="modal-overlay" id="modal1" onclick="closeModal(event, 'modal1')">
   <div class="modal">
     <button class="modal-close" onclick="document.getElementById('modal1').classList.remove('open')">×</button>
