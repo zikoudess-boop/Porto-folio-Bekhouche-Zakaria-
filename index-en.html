@@ -30,7 +30,6 @@
     line-height: 1.7;
   }
 
-  /* NAV */
   nav {
     position: fixed; top: 0; width: 100%; z-index: 100;
     background: rgba(245,242,236,0.92);
@@ -58,7 +57,6 @@
   }
   .lang-switch:hover { background: var(--surface); }
 
-  /* HERO */
   .hero {
     min-height: 100vh;
     display: flex; align-items: center;
@@ -123,7 +121,6 @@
   }
   .btn-outline:hover { background: var(--surface); transform: translateY(-1px); }
 
-  /* STATS */
   .stats {
     display: flex; gap: 0;
     border-top: 1px solid var(--border);
@@ -144,7 +141,6 @@
   }
   .stat-label { font-size: 12px; color: var(--muted); letter-spacing: 0.04em; }
 
-  /* SECTIONS */
   section { padding: 96px 48px; max-width: 1000px; margin: 0 auto; }
   .section-header { margin-bottom: 56px; }
   .section-num {
@@ -158,7 +154,6 @@
     line-height: 1.15;
   }
 
-  /* ABOUT */
   .about-grid {
     display: grid; grid-template-columns: 1fr 1fr;
     gap: 48px; align-items: start;
@@ -191,7 +186,6 @@
   .contact-value { font-size: 13px; font-weight: 500; }
   .contact-value a { color: var(--accent-light); text-decoration: none; }
 
-  /* FORMATION */
   .timeline { position: relative; }
   .timeline::before {
     content: ''; position: absolute; left: 150px; top: 8px;
@@ -224,7 +218,6 @@
   .timeline-title { font-size: 17px; font-weight: 500; margin-bottom: 8px; }
   .timeline-desc { font-size: 14px; color: var(--muted); }
 
-  /* PROJETS */
   .projects-grid {
     display: grid; grid-template-columns: 1fr 1fr;
     gap: 20px;
@@ -255,7 +248,6 @@
   .project-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
   .project-year { font-size: 12px; color: var(--muted); white-space: nowrap; margin-top: 4px; }
 
-  /* COMPÉTENCES */
   .skills-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
   .skill-group-title {
     font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
@@ -287,7 +279,6 @@
   .lang-name { font-weight: 500; margin-bottom: 4px; font-size: 15px; }
   .lang-level { font-size: 12px; color: var(--muted); }
 
-  /* RECOMMANDATIONS */
   .reco-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   .reco-card {
     background: var(--card); border: 1px solid var(--border);
@@ -323,7 +314,6 @@
     cursor: pointer; display: inline-flex; align-items: center; gap: 4px;
   }
 
-  /* MODAL */
   .modal-overlay {
     display: none; position: fixed; inset: 0; z-index: 200;
     background: rgba(26,24,20,0.7); backdrop-filter: blur(4px);
@@ -359,7 +349,6 @@
   .modal-body { font-size: 14px; line-height: 1.8; color: var(--muted); }
   .modal-body p { margin-bottom: 14px; }
 
-  /* CONTACT */
   .contact-section {
     background: var(--accent);
     color: #fff; text-align: center;
@@ -380,14 +369,12 @@
   }
   .contact-email:hover { border-bottom-color: #fff; }
 
-  /* FOOTER */
   footer {
     text-align: center; padding: 32px;
     font-size: 12px; color: var(--muted);
     border-top: 1px solid var(--border);
   }
 
-  /* ANIMATIONS */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
@@ -400,7 +387,6 @@
   .hero-desc { animation-delay: 0.2s; }
   .hero-ctas { animation-delay: 0.3s; }
 
-  /* TRAVAUX */
   .travaux-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .travaux-card {
     background: var(--card); border: 1px solid var(--border);
@@ -468,7 +454,6 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero" style="padding-top:100px; max-width:none;">
   <div class="hero-inner">
     <div class="hero-tag">Ongoing Internship — ENS de Lyon · Apr  Jul 2026</div>
@@ -481,7 +466,6 @@
   </div>
 </section>
 
-<!-- STATS -->
 <div class="stats" style="max-width:none;">
   <div class="stat"><div class="stat-num">6</div><div class="stat-label">Recommendation letters incl. CNRS/ENS Lyon</div></div>
   <div class="stat"><div class="stat-num">3</div><div class="stat-label">Years of undergraduate study</div></div>
@@ -489,7 +473,6 @@
   <div class="stat"><div class="stat-num">7</div><div class="stat-label">Documents & reports</div></div>
 </div>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="section-header">
     <span class="section-num">01 — About</span>
@@ -539,7 +522,6 @@
   </div>
 </section>
 
-<!-- FORMATION -->
 <section id="formation" style="background:var(--surface); max-width:none; padding-left:0; padding-right:0;">
   <div style="max-width:1000px; margin:0 auto; padding:96px 48px;">
   <div class="section-header">
@@ -576,7 +558,6 @@
   </div>
 </section>
 
-<!-- PROJETS -->
 <section id="projets">
   <div class="section-header">
     <span class="section-num">03 — Experience & Projects</span>
@@ -629,7 +610,6 @@
   </div>
 </section>
 
-<!-- COMPÉTENCES -->
 <section id="competences" style="background:var(--surface); max-width:none; padding-left:0; padding-right:0;">
   <div style="max-width:1000px; margin:0 auto; padding:96px 48px;">
   <div class="section-header">
@@ -678,6 +658,39 @@
       <div class="skill-item"><span class="skill-name">Teaching & science communication</span><div class="skill-bar"><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot"></div></div></div>
       <div class="skill-item"><span class="skill-name">Autonomy & rigor</span><div class="skill-bar"><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div></div></div>
     </div>
+    <div style="grid-column:1/-1; margin-top:8px;">
+      <div class="skill-group-title">Data Science & Clustering (CNRS Internship · ENS Lyon)</div>
+      <div class="skill-item">
+        <span class="skill-name">Unsupervised clustering (K-means, hierarchical)</span>
+        <div class="skill-bar">
+          <div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name">Dimensionality reduction (MDS)</span>
+        <div class="skill-bar">
+          <div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name">Multifractal analysis (HWT, MFDFA) — MATLAB</span>
+        <div class="skill-bar">
+          <div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name">Silhouette-coefficient cluster evaluation</span>
+        <div class="skill-bar">
+          <div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot"></div><div class="skill-dot"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name">Interactive 3D visualization (clusters, ellipsoids, search)</span>
+        <div class="skill-bar">
+          <div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot"></div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="lang-grid" style="margin-top:48px;">
     <div class="lang-card">
@@ -700,7 +713,6 @@
   </div>
 </section>
 
-<!-- RECOMMANDATIONS -->
 <section id="recommandations">
   <div class="section-header">
     <span class="section-num">05 — Recommendations</span>
@@ -708,7 +720,6 @@
   </div>
   <div class="reco-grid">
 
-    <!-- CNRS / ENS Lyon — featured full-width card -->
     <div class="reco-card" onclick="openModal('modal0')" style="grid-column:1/-1; border-color:rgba(74,122,37,0.35); background:linear-gradient(135deg,var(--card) 0%,var(--accent-bg) 100%);">
       <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
         <span style="font-size:11px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; background:var(--accent); color:#fff; padding:4px 12px; border-radius:100px;">⭐ CNRS · ENS de Lyon</span>
@@ -800,7 +811,6 @@
   </div>
 </section>
 
-<!-- MES TRAVAUX -->
 <section id="travaux" style="background:var(--surface); max-width:none; padding-left:0; padding-right:0;">
   <div style="max-width:1000px; margin:0 auto; padding:96px 48px;">
   <div class="section-header">
@@ -873,7 +883,6 @@
   </div>
 </section>
 
-<!-- CONTACT -->
 <div class="contact-section" id="contact">
   <h2>Let's work together</h2>
   <p>Currently completing a research internship at ENS de Lyon, preparing for a Master's in Physics. Feel free to reach out.</p>
@@ -884,7 +893,6 @@
   © 2026 Zakaria Bekhouche · Physics student · Université Jean Monnet
 </footer>
 
-<!-- MODALS -->
 <div class="modal-overlay" id="modal0" onclick="closeModal(event, 'modal0')">
   <div class="modal">
     <button class="modal-close" onclick="document.getElementById('modal0').classList.remove('open')">×</button>
@@ -1087,7 +1095,6 @@
     });
   });
 
-  // Smooth nav highlight
   const sections = document.querySelectorAll('section[id], div[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
   window.addEventListener('scroll', () => {
